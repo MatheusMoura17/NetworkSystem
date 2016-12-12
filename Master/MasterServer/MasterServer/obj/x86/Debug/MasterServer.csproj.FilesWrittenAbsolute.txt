@@ -1,0 +1,5 @@
+/home/iron/Área de Trabalho/NetworkSystem/Master/MasterServer/MasterServer/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/iron/Área de Trabalho/NetworkSystem/Master/MasterServer/MasterServer/bin/Debug/MasterServer.exe.mdb
+/home/iron/Área de Trabalho/NetworkSystem/Master/MasterServer/MasterServer/bin/Debug/MasterServer.exe
+/home/iron/Área de Trabalho/NetworkSystem/Master/MasterServer/MasterServer/obj/x86/Debug/MasterServer.exe
+/home/iron/Área de Trabalho/NetworkSystem/Master/MasterServer/MasterServer/obj/x86/Debug/MasterServer.exe.mdb

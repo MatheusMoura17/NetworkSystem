@@ -1,0 +1,5 @@
+port=11000
+max_users=20
+user_connection_time_out=30
+show_error=1
+debug=1

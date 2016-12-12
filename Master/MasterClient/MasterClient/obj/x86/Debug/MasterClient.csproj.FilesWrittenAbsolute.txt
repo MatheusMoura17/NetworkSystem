@@ -1,0 +1,5 @@
+/home/iron/Área de Trabalho/NetworkSystem/Master/MasterClient/MasterClient/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/iron/Área de Trabalho/NetworkSystem/Master/MasterClient/MasterClient/bin/Debug/MasterClient.exe.mdb
+/home/iron/Área de Trabalho/NetworkSystem/Master/MasterClient/MasterClient/bin/Debug/MasterClient.exe
+/home/iron/Área de Trabalho/NetworkSystem/Master/MasterClient/MasterClient/obj/x86/Debug/MasterClient.exe
+/home/iron/Área de Trabalho/NetworkSystem/Master/MasterClient/MasterClient/obj/x86/Debug/MasterClient.exe.mdb

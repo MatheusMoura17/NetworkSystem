@@ -1,0 +1,15 @@
+﻿<Properties StartupItem="MasterClient.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Program.cs">
+    <Files>
+      <File FileName="Program.cs" Line="13" Column="32" />
+      <File FileName="TCPClient.cs" Line="63" Column="3" />
+      <File FileName="PacketStruct.cs" Line="48" Column="5" />
+      <File FileName="SessionManager.cs" Line="7" Column="2" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

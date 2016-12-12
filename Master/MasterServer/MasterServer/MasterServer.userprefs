@@ -1,0 +1,14 @@
+﻿<Properties StartupItem="MasterServer.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Client.cs">
+    <Files>
+      <File FileName="Client.cs" Line="11" Column="34" />
+      <File FileName="ClientBase.cs" Line="140" Column="5" />
+      <File FileName="Log.cs" Line="8" Column="40" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
