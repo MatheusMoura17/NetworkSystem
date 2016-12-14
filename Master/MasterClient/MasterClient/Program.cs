@@ -13,18 +13,18 @@ namespace MasterClient
 		public static void Main (string[] args)
 		{
 
-			Console.Write (">");
-			int clients = int.Parse(Console.ReadLine ());
-
-			for (int i = 0; i < clients; i++) {
-				Thread t = new Thread (StartThread);
-				t.IsBackground = true;
-				t.Start();
-				int time=rnd.Next (100, 1500);
-				//Thread.Sleep(time);
-				//Start ();
-			}
-			Console.ReadKey ();
+//			Console.Write (">");
+//			int clients = int.Parse(Console.ReadLine ());
+//
+//			for (int i = 0; i < clients; i++) {
+//				Thread t = new Thread (StartThread);
+//				t.IsBackground = true;
+//				t.Start();
+//				int time=rnd.Next (100, 1500);
+//				//Thread.Sleep(time);
+//				//Start ();
+//			}
+			//Console.ReadKey ();
 
 //			PacketStruct pack = new PacketStruct ();
 //			pack.message = "Olá mundo";
@@ -36,6 +36,7 @@ namespace MasterClient
 //			PacketStruct newPacket = PacketConversion.GetPacketStruct (data);
 //
 //			Console.WriteLine (newPacket.message+" "+data.Length);
+			StartThread();
 		}
 
 
@@ -43,10 +44,20 @@ namespace MasterClient
 
 			client++;
 			Console.WriteLine (client+": lauched");
-			TCPClient tcpClient = new TCPClient ("127.0.0.1", 11000);
+			MasterClient tcpClient = new MasterClient ();
 			//TCPClient tcpClient = new TCPClient (Dns.GetHostAddresses("matheusmoura.ddns.net")[0].ToString(), 11000);
-			tcpClient.id = client;
-			tcpClient.Start ();
+			tcpClient.Connect ("127.0.0.1", 11000);
+			while (true) {
+				Console.Write ("ID: ");
+				ulong id = uint.Parse(Console.ReadLine ());
+				Console.Write ("Mensagem: ");
+				string message = Console.ReadLine ();
+				PacketStruct pack=new PacketStruct ();
+				pack.command = Command.CHAT;
+				pack.message = id+"," + message;
+
+				tcpClient.SendSecureData (pack);
+			}
 		}
 	}
 }

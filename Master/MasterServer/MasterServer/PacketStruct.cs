@@ -10,7 +10,8 @@ namespace MasterServer
 		ENCRYPTED_COMMAND,
 		START,
 		CLOSE,
-		AUTENTICATE
+		AUTENTICATE,
+		CHAT
 		//adicione aqui os comandos que você quiser, porém não use ou remova os comandos acima
 		//isso pode resultar em crash, dsconexão do usuário, ou até mesmo encerramento do servidor.
 	}

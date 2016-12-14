@@ -1,10 +1,11 @@
 ﻿<Properties StartupItem="MasterServer.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Client.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ClientBase.cs">
     <Files>
-      <File FileName="Client.cs" Line="11" Column="34" />
-      <File FileName="ClientBase.cs" Line="140" Column="5" />
-      <File FileName="Log.cs" Line="8" Column="40" />
+      <File FileName="Client.cs" Line="19" Column="47" />
+      <File FileName="ClientBase.cs" Line="159" Column="40" />
+      <File FileName="MasterServer.cs" Line="23" Column="5" />
+      <File FileName="PacketStruct.cs" Line="16" Column="22" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -9,9 +9,6 @@ namespace MasterClient
 {
 	public class TCPClient
 	{
-
-		public int id;
-
 		TcpClient _tcpClient;
 		bool canStop=false;
 		int timeoutCounter=0;
@@ -22,21 +19,24 @@ namespace MasterClient
 
 		public bool hasSecureConnection;
 
-		private SessionManager session;
+		private Session session;
 		private string host;
 		private int port;
+		private ulong userID;
+
+		public ulong UserID {
+			get {
+				return userID;
+			}
+		}
 		
-		public TCPClient (string host, int port)
+		public void Connect (string host, int port)
 		{
 			this.host = host;
 			this.port = port;
-			session = new SessionManager ();
-			session.onSessionGenerated += OnSessionGenerated ;
-		}
-
-		public void Start(){
+			session = new Session ();
+			session.onSessionGenerated += OnSessionGenerated;
 			session.GenerateSession ();
-		
 		}
 
 		private void OnSessionGenerated(){
@@ -54,7 +54,7 @@ namespace MasterClient
 
 		public void ReceivedStartFromServer(){
 
-			Console.WriteLine (id+": Connected");
+			OnConnected ();
 
 			Thread t1 = new Thread (SenderSync);
 			t1.IsBackground = true;
@@ -65,9 +65,6 @@ namespace MasterClient
 			PacketStruct packet = new PacketStruct ();
 			packet.command = Command.SYNC;
 			while (!canStop) {
-				packet.command = Command.SYNC;
-				SendSecureData (packet);
-				packet.command = Command.TEST;
 				SendSecureData (packet);
 				Thread.Sleep (SYNC_TIME);
 			}
@@ -102,7 +99,10 @@ namespace MasterClient
 						//	Console.WriteLine ("Received " + receivedSecurePacket.message);
 
 							if(receivedSecurePacket.command==Command.START){
+								userID=uint.Parse(receivedSecurePacket.message);
 								ReceivedStartFromServer();
+							}else if(receivedSecurePacket.command!=Command.SYNC){
+								OnReceiveMessage(receivedSecurePacket);
 							}
 
 							timeoutCounter = 0;
@@ -150,7 +150,19 @@ namespace MasterClient
 		public void Disconnect(){
 			canStop = true;
 			_tcpClient.Close ();
-			Console.WriteLine (id+": Disconnected");
+			OnDisconnected ();
+		}
+
+		public virtual void OnConnected(){
+
+		}
+
+		public virtual void OnDisconnected(){
+
+		}
+
+		public virtual void OnReceiveMessage(PacketStruct packet){
+
 		}
 
 

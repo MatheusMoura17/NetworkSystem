@@ -19,6 +19,31 @@ namespace MasterServer
 		private Session session=new Session();
 		private DateTime startedTime; //tempo em que o cliente se conectou
 		private bool hasSecureChannel; //cliente e servidor compartilham informações com segurança
+		private ulong userId;
+		public MasterServer masterServer;
+
+		public bool isReady {
+			get {
+				return hasSecureChannel;
+			}
+		}
+
+		//id do cliente
+		public ulong UserId {
+			get {
+				return userId;
+			}
+			set{
+				userId = value;
+			}
+		}
+
+		//tempo de conexão do cliente
+		public TimeSpan ConnectedTime {
+			get {
+				return DateTime.Now.Subtract(startedTime);
+			}
+		}
 
 		//inicia a manipuação do cliente
 		public void Init (TcpClient _tcpClient)
@@ -133,6 +158,7 @@ namespace MasterServer
 								//pede para o cliente iniciar startar os modulos
 								PacketStruct packetToSend=new PacketStruct();
 								packetToSend.command=Command.START;
+								packetToSend.message=userId.ToString();
 								SendSecureData(packetToSend);
 
 							}
@@ -171,6 +197,7 @@ namespace MasterServer
 		//desconecta o cliente a qualquer custo
 		public void Disconnect(){
 			//tempo em que o usuario ficou conectado
+			masterServer.RemoveClient(userId);
 			TimeSpan time=DateTime.Now.Subtract(startedTime);
 			Log.Print (iep + "\tdesconectado\ttempo de conexão:"+time.ToString()+"\tencryptado? "+hasSecureChannel);
 			canStop=true;
@@ -180,13 +207,11 @@ namespace MasterServer
 
 
 		/********FUNÇÕES PARA O HERDEIRO*********/
-		public bool Send(Command command, object[] args){
+		public bool Send(Command command, string args){
 			PacketStruct packet= new PacketStruct ();
 			packet.command = command;
+			packet.message = args;
 
-			foreach (object o in args) {
-				packet.message+= o.ToString();
-			}
 			int packetLength=PacketConversion.PacketStructToString(packet).Length;
 			if(packetLength<=64){
 				SendSecureData(packet);

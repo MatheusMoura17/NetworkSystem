@@ -2,7 +2,7 @@
 
 namespace MasterServer
 {	
-	class MasterServer
+	class MainClass
 	{
 
 		public static void Main (string[] args)
@@ -13,7 +13,7 @@ namespace MasterServer
 			settings.LoadSettings ();
 
 		//	Log.Print ("Iniciando...");
-			TCPServer server = new TCPServer (11000);
+			MasterServer server = new MasterServer (11000);
 			server.Start ();
 			Console.ReadKey ();
 

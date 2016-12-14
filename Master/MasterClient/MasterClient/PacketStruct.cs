@@ -10,7 +10,8 @@ namespace MasterClient
 		ENCRYPTED_COMMAND,
 		START,
 		CLOSE,
-		TEST
+		AUTENTICATE,
+		CHAT
 	}
 
 	public struct PacketStruct

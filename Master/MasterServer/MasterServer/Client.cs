@@ -14,6 +14,12 @@ namespace MasterServer
 		public override void OnReceiveMessage (PacketStruct packet){
 			//Log.Print ("Recebido: "+packet.command);
 			//Console.WriteLine("Enviado? "+Send (Command.SYNC, new object[]{"1234lk98987yylkkhkjhkjhkjhkjhkhkjhkjyiyi56"}));
+			if(packet.command==Command.CHAT){
+				string[] input=packet.message.Split(',');
+				masterServer.SendMessage(UserId,uint.Parse(input[0]),Command.CHAT,input[1]);
+			}
+				
+				
 		}
 
 		public override void OnAcceptedConnection ()

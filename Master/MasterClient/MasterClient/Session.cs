@@ -8,7 +8,7 @@ namespace MasterClient
 
 	public delegate void OnSessionGeneratedDelegate();
 
-	public class SessionManager
+	public class Session
 	{
 		private RSACryptoServiceProvider RSA;
 		private RSACryptoServiceProvider serverRSA;
